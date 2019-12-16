@@ -41,6 +41,7 @@ setuptools.setup(
         "console_scripts": ["bum=bum.__main__:main"]
     },
     install_requires=[
+        "xdg",
         "musicbrainzngs",
         "python-mpv",
         "python-mpd2",
