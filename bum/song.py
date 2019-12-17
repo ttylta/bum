@@ -37,7 +37,6 @@ def get_art(cache_dir, size, client):
     file_name = cache_dir / file_name
 
     mpd_directory = xdg_config_home + "/mpd"
-    folder_file = song["file"].split("/")[0] + "/folder.jpg"
 
     music_directory = "";
     if os.path.isdir(mpd_directory):
@@ -56,11 +55,22 @@ def get_art(cache_dir, size, client):
 
 
     song_dir = '/'.join(song["file"].split("/")[:-1])
-    folder_file = os.path.expanduser("~") + music_directory + "/" + song_dir + "/folder.jpg"
+    file_base = os.path.expanduser("~") + music_directory + "/" + song_dir 
+    local_files = [
+        file_base + "/folder.jpg",
+        file_base + "/cover.jpg",
+        file_base + "/"  + song["album"],
+    ]
 
-    if os.path.isfile(folder_file):
+    local_file = False
+    for f in local_files:
+        if os.path.isfile(f):
+            local_file = f
+            break
+
+    if local_file:
         print("Using local folder.jpg...")
-        shutil.copy(folder_file, cache_dir / "current.jpg")
+        shutil.copy(local_file, cache_dir / "current.jpg")
 
     elif file_name.is_file():
         shutil.copy(file_name, cache_dir / "current.jpg")
