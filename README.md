@@ -2,6 +2,8 @@
 
 This fork modifies bum to check for the presence of either folder.jpg, cover.jpg, or any image containing the album name within the directory of the current song. If no image match is found, bum proceeds like normal. 
 
+It doe make at least one assumption: that you have an `mpd/mpd.conf` file in your `XDG_CONFIG_HOME` (typically `~/.config`).
+
 
 
 # 🎵 bum
