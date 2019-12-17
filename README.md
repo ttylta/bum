@@ -1,3 +1,9 @@
+# About
+
+This fork modifies bum to check for the presence of either folder.jpg, cover.jpg, or any image containing the album name within the directory of the current song. If no image match is found, bum proceeds like normal. 
+
+
+
 # 🎵 bum
 
 [![PyPI](https://img.shields.io/pypi/v/bum.svg)](https://pypi.python.org/pypi/bum/)
